@@ -1,5 +1,11 @@
 from random import *
 
+# @todo 1. add check of arguments
+#       2. rewrite with support of python OOP mechanism
+#       3. add user defined task field
+#       4. add save to file
+
+
 class TortoiseTask:
     def __init__(self, row_amnt, col_amnt, min_price, max_price):
         self.row_amnt = row_amnt
