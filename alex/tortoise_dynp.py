@@ -32,12 +32,12 @@ class TortoiseTask:
             solve_field[row_num][0] = solve_field[row_num - 1][0] + self.field[row_num][0]
         for col_num in range(1, len(self.field[0])):
             for row_num in range(1, len(self.field)):
-                first_val = solve_field[col_num][row_num - 1] + self.field[row_num][col_num]
-                second_val = solve_field[col_num - 1][row_num] + self.field[row_num][col_num]
+                first_val = solve_field[row_num - 1][col_num] + self.field[row_num][col_num]
+                second_val = solve_field[row_num][col_num - 1] + self.field[row_num][col_num]
                 if first_val > second_val:
-                    solve_field[col_num][row_num] = first_val
+                    solve_field[row_num][col_num] = first_val
                 else:
-                    solve_field[col_num][row_num] = second_val
+                    solve_field[row_num][col_num] = second_val
         print("solve field\n")
         for row in solve_field:
             print(row)
@@ -48,9 +48,9 @@ class TortoiseTask:
 if __name__ == "__main__":
     tortoiseTask = TortoiseTask(3, 3, 1, 9)
     tortoiseTask.generate_field()
-    rv = tortoiseTask.solve()
     field = tortoiseTask.getField()
     for row in field:
         print(row)
+    rv = tortoiseTask.solve()
 
     print("solution =", rv)
