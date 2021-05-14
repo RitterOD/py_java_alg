@@ -31,20 +31,15 @@ def equal(arr):
     min_val = arr[0]
     min_ind = 0
     arr.sort(reverse=True)
-    for ind in range(len(arr)):
-        if min_val > arr[ind]:
-            min_val = arr[ind]
-            min_ind = ind
+    min_val = arr[len(arr) - 1]
+    min_ind = len(arr) - 1
     cnt_op = 0
-    for ind in range(len(arr)):
-        max_val = arr[0]
-        max_ind = 0
-        for ind in range(len(arr)):
-            if max_val < arr[ind]:
-                max_val = arr[ind]
-                max_ind = ind
+    for ind in range(len(arr) - 1):
+        max_val = arr[ind]
+        max_ind = ind
+        if max_val == min_val:
+            break
         cnt_op += calc_op(arr[min_ind], arr[max_ind])
-        arr[max_ind] = arr[min_ind]
     return cnt_op
 
 if __name__ == '__main__':
