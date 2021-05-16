@@ -93,7 +93,7 @@ def perform_negative_test(data, min_val, max_val):
 if __name__ == '__main__':
     print('shift binary search')
     random.seed()
-    for ind in range(0, 1000):
+    for ind in range(0, 1000000):
         test_data = produce_test_data(10, 20, 90, 1000)
         rv = perform_test(test_data)
         if not rv:
@@ -101,6 +101,6 @@ if __name__ == '__main__':
         rv = perform_negative_test(test_data, 90, 1000)
         if not rv:
             print('Negative test fail', ind)
-        if ind % 100 == 0:
+        if ind % 10000 == 0:
             print('iter = ', ind)
     print('Finish')
