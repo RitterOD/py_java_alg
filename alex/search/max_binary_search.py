@@ -7,9 +7,8 @@ def binarySearch(arr, x, left, right):
     left = 0
     right = len(arr)
     while True:
-        if right <= left: # промежуток пуст
+        if right == left: # промежуток пуст
             break
-        # промежуток не пуст
         mid = (left + right) // 2
         if arr[mid] == x: # центральный элемент — искомый
             rv = mid
