@@ -2,7 +2,7 @@
 def partition_quciksort(ar, l, r):
     pivot = ar[r - 1]
     cur_less_ind = l - 1
-    for ind in range(l, r - 2):
+    for ind in range(l, r - 1):
         if ar[ind] <= pivot:
             cur_less_ind += 1
             tmp = ar[ind]
