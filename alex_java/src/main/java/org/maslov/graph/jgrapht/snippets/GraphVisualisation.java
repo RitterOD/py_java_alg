@@ -27,14 +27,20 @@ public class GraphVisualisation {
             String x1 = "x1";
             String x2 = "x2";
             String x3 = "x3";
+            String x4 = "x4";
+            String x5 = "x5";
 
             g.addVertex(x1);
             g.addVertex(x2);
             g.addVertex(x3);
+            g.addVertex(x4);
+            g.addVertex(x5);
 
             g.addEdge(x1, x2);
             g.addEdge(x2, x3);
-            g.addEdge(x3, x1);
+            g.addEdge(x3, x4);
+            g.addEdge(x4, x5);
+            g.addEdge(x5, x1);
 
             JGraphXAdapter<String, DefaultEdge> graphAdapter =
                     new JGraphXAdapter<String, DefaultEdge>(g);
