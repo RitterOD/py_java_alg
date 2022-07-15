@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 
 /*
-* link to problem https://leetcode.com/problems/array-partition-i/
+* link to problem https://leetcode.com/problems/array-partition/
 *
 * */
 public class ArrayPartition {
