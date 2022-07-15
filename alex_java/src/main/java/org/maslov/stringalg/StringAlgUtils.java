@@ -1,5 +1,9 @@
 package org.maslov.stringalg;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StringAlgUtils {
     public static int[] build_Z_function(String s) {
         var rv = new int[s.length()];
@@ -12,7 +16,7 @@ public class StringAlgUtils {
         while(k < s.length() - 1) {
             if (r < k) {
                 int cur_z = 0;
-                while(s.charAt(cur_z) == s.charAt(k + cur_z)) {
+                while(k + cur_z < s.length() && s.charAt(cur_z) == s.charAt(k + cur_z)) {
                     ++cur_z;
                 }
                 rv[k] = cur_z;
@@ -40,6 +44,25 @@ public class StringAlgUtils {
                 }
             }
             ++k;
+        }
+        return rv;
+    }
+
+    public static List<Integer> findPatterns(String text, String pattern) {
+        char delimeter = '!';
+        if (text.chars().filter(e -> e == delimeter).count() != 0) {
+            throw new IllegalArgumentException("text contains delimeter symbol !. Change delimeter symbol");
+        }
+        if (pattern.chars().filter(e -> e == delimeter).count() != 0) {
+            throw new IllegalArgumentException("pattern contains delimeter symbol !. Change delimeter symbol");
+        }
+        String procText = pattern + delimeter + text;
+        int[] z = build_Z_function(procText);
+        var rv = new ArrayList<Integer>();
+        for(int i = pattern.length() + 1; i < procText.length(); ++i) {
+            if(z[i] == pattern.length()) {
+                rv.add(i - pattern.length() - 1);
+            }
         }
         return rv;
     }
